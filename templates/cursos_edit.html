@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Editar curso #{{ curso.id }}</h1>
+<form method="post">
+  <label>Nombre <input name="nombre" value="{{ curso.nombre }}" required /></label>
+  <label>Descripción <textarea name="descripcion">{{ curso.descripcion or "" }}</textarea></label>
+  <label>Duración (horas) <input name="duracion_horas" type="number" min="1" max="500" value="{{ curso.duracion_horas }}" required /></label>
+  <label>Inicio (YYYY-MM-DD) <input name="inicio" type="date" value="{{ curso.inicio or "" }}"/></label>
+  <button type="submit">Guardar</button>
+  <a class="btn" href="/cursos">Cancelar</a>
+</form>
+{% endblock %}

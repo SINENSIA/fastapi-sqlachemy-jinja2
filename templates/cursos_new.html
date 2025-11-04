@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Nuevo curso</h1>
+<form method="post">
+  <label>Nombre <input name="nombre" required /></label>
+  <label>Descripción <textarea name="descripcion"></textarea></label>
+  <label>Duración (horas) <input name="duracion_horas" type="number" min="1" max="500" required /></label>
+  <label>Inicio (YYYY-MM-DD) <input name="inicio" type="date" /></label>
+  <button type="submit">Crear</button>
+  <a class="btn" href="/cursos">Cancelar</a>
+</form>
+{% endblock %}

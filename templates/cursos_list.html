@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de cursos</h2>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Duración</th>
+        <th>Inicio</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        {% for curso in cursos %}
+        <tr>
+            <td>{{ curso.id }}</td>
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.duracion_horas }}</td>
+            <td>{{ curso.inicio }}</td>
+            <td>
+                <a href="/cursos/{{ curso.id}}/editar">Editar</a>
+                <form action="/cursos/{{ curso.id }}/borrar" method="post">
+                    <button type="submit">Borrar</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5"> No hay cursos</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

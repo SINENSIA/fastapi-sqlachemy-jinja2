@@ -1,0 +1,9 @@
+body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+nav a { margin-right: 1rem; text-decoration: none; }
+.btn { padding: .4rem .7rem; border: 1px solid #222; border-radius: .25rem; }
+table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+th, td { border: 1px solid #ddd; padding: .5rem; }
+.alert.error { background: #fbe9e9; border: 1px solid #c00; padding: .5rem; margin-bottom: 1rem; }
+label { display: block; margin: .5rem 0; }
+input, textarea { width: 100%; max-width: 28rem; }
+button { padding: .4rem .7rem; }

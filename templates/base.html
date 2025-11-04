@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Lista de cursos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/cursos">Cursos</a>
+            <a href="/cursos/nuevo">Nuevo</a>
+            <a href="/api/cursos" target="_blank">API JSON</a>
+        </nav>
+    </header>
+    <main>
+        {% if error %}
+            <div class="alert error">{{ error }}</div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
