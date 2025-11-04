@@ -82,11 +82,12 @@ def cursos_edit_submit(
         raise HTTPException(404, "No encontrado")
 
     try:
+        inicio_dt = date.fromisoformat(inicio) if inicio else None
         data = CursoIn(
             nombre=nombre,
             descripcion=descripcion,
             duracion_horas=int(duracion_horas),
-            inicio=inicio,
+            inicio=inicio_dt,
         )
     except Exception as e:
         return templates.TemplateResponse(
