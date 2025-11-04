@@ -33,11 +33,11 @@ def cursos_new_submit(
     nombre: str = Form(...),               # Form(...) => vendrá del form HTML
     descripcion: Optional[str] = Form(None),
     duracion_horas: int = Form(...),
-    inicio: Optional[str] = Form(None),
+    inicio: str = Form(...),
     db: Session = Depends(get_db),
 ):
     try:
-        inicio_dt = date.fromisoformat(inicio) if inicio else None
+        inicio_dt = date.fromisoformat(inicio.strip())
         data = CursoIn(
             nombre=nombre,
             descripcion=descripcion,
@@ -74,7 +74,7 @@ def cursos_edit_submit(
     nombre: str = Form(...),
     descripcion: Optional[str] = Form(None),
     duracion_horas: int = Form(...),
-    inicio: Optional[str] = Form(None),
+    inicio: str = Form(...),
     db: Session = Depends(get_db),
 ):
     c = db.get(CursoORM, curso_id)
@@ -82,7 +82,7 @@ def cursos_edit_submit(
         raise HTTPException(404, "No encontrado")
 
     try:
-        inicio_dt = date.fromisoformat(inicio) if inicio else None
+        inicio_dt = date.fromisoformat(inicio.strip())
         data = CursoIn(
             nombre=nombre,
             descripcion=descripcion,

@@ -8,7 +8,7 @@ class CursoIn(BaseModel):
     nombre: str
     descripcion: Optional[str] = None
     duracion_horas: int = Field(ge=1, le=500)
-    inicio: Optional[date] = None
+    inicio: date
 
     @field_validator("nombre")
     @classmethod
